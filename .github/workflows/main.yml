@@ -11,11 +11,11 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: deploca/sample-microservice-school
-          path: /tmp/src
+          path: sample-microservice-school
       - name: Publish sample repository
         run: |
-          chmod +x /tmp/src/publish.sh
-          /tmp/src/publish.sh
+          chmod +x sample-microservice-school/publish.sh
+          sample-microservice-school/publish.sh
       - name: Upload action
         uses: ./ # Uses an action in the root directory
         id: uploader

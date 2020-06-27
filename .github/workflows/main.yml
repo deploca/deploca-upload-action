@@ -12,10 +12,15 @@ jobs:
         with:
           repository: deploca/sample-microservice-school
           path: sample-microservice-school
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 2.2.101
       - name: Publish sample repository
         run: |
-          chmod +x sample-microservice-school/publish.sh
-          sample-microservice-school/publish.sh
+          cd sample-microservice-school
+          chmod +x publish.sh
+          publish.sh
       - name: Upload action
         uses: ./ # Uses an action in the root directory
         id: uploader

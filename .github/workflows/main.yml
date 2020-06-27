@@ -20,7 +20,7 @@ jobs:
         run: |
           cd sample-microservice-school
           chmod +x publish.sh
-          publish.sh
+          ./publish.sh
       - name: Upload action
         uses: ./ # Uses an action in the root directory
         id: uploader

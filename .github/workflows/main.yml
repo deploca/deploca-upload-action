@@ -26,7 +26,7 @@ jobs:
         id: uploader
         with:
           path: ./sample-microservice-school/_publish
-          target: sample-school/development
+          target: sample-school-3/development
       # Use the output from the `hello` step
       - name: Get the output result
         run: echo "The result is ${{ steps.uploader.outputs.result }}"

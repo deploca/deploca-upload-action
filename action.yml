@@ -1,5 +1,8 @@
 name: 'Deploca Upload'
 description: 'Upload packages to deploca cloud app engine'
+branding:
+  color: purple
+  icon: arrow-up-circle
 inputs:
   path:
     description: 'Path of package directory'

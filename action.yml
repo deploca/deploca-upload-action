@@ -10,6 +10,9 @@ inputs:
   target:
     description: 'Target to deploy to'
     required: true
+  token:
+    description: 'Your Api Token'
+    required: true
 outputs:
   result:
     description: 'Deploy result'
@@ -19,3 +22,4 @@ runs:
   args:
     - ${{ inputs.path }}
     - ${{ inputs.target }}
+    - ${{ inputs.token }}

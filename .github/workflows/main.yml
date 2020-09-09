@@ -1,0 +1,32 @@
+on: [push]
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+      - name: Checkout Action
+        uses: actions/checkout@v2
+      - name: Checkout Sample Repository
+        uses: actions/checkout@v2
+        with:
+          repository: deploca/sample-microservice-school
+          path: sample-microservice-school
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 2.2.101
+      - name: Publish sample repository
+        run: |
+          cd sample-microservice-school
+          chmod +x publish.sh
+          ./publish.sh
+      - name: Upload action
+        uses: ./ # Uses an action in the root directory
+        id: uploader
+        with:
+          path: ./sample-microservice-school/_publish
+          target: sample-school-3/development
+      # Use the output from the `hello` step
+      - name: Get the output result
+        run: echo "The result is ${{ steps.uploader.outputs.result }}"
